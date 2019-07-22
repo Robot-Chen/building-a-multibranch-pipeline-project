@@ -13,7 +13,9 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
 
         file(name: "FILE", description: "Choose a file to upload")
-
+         
+    }
+   
     agent any
   
     environment { 
@@ -39,3 +41,4 @@ pipeline {
         }
     }
 }
+
