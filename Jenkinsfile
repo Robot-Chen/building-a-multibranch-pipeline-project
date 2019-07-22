@@ -1,14 +1,15 @@
 pipeline {
    
    // adds job parameters within jenkinsfile
+   properties(
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
         booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-        if ("${TOGGLE}" == 'true')
-                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+       if ("${TOGGLE}" == 'true'){
+                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')}
        
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
@@ -16,7 +17,7 @@ pipeline {
 
         file(name: "FILE", description: "Choose a file to upload")
          
-    }
+    })
    
     agent any
   
